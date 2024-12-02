@@ -8,9 +8,26 @@ namespace lab3_ooap
 {
     internal class FullPaymentFactory : CarFactory
     {
+        private static FullPaymentFactory instance;
+
+        private FullPaymentFactory() { }
+
+        public static FullPaymentFactory Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new FullPaymentFactory();
+                }
+                return instance;
+            }
+        }
+
         public override Client CreateClient()
         {
             return new FullPaymentClient();
         }
     }
+
 }

@@ -40,20 +40,22 @@
             this.btnCalculate = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txtWarranty = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(49, 40);
+            this.label1.Location = new System.Drawing.Point(48, 55);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 20);
+            this.label1.Size = new System.Drawing.Size(152, 20);
             this.label1.TabIndex = 11;
-            this.label1.Text = "Базова ціна";
+            this.label1.Text = "Enter the base price";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtBasePrice
             // 
-            this.txtBasePrice.Location = new System.Drawing.Point(170, 40);
+            this.txtBasePrice.Location = new System.Drawing.Point(244, 49);
             this.txtBasePrice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtBasePrice.Name = "txtBasePrice";
             this.txtBasePrice.Size = new System.Drawing.Size(112, 26);
@@ -62,15 +64,15 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(31, 93);
+            this.label2.Location = new System.Drawing.Point(31, 323);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(116, 20);
+            this.label2.Size = new System.Drawing.Size(81, 20);
             this.label2.TabIndex = 13;
-            this.label2.Text = "Фінальна ціна";
+            this.label2.Text = "Final price";
             // 
             // txtFinalPrice
             // 
-            this.txtFinalPrice.Location = new System.Drawing.Point(170, 93);
+            this.txtFinalPrice.Location = new System.Drawing.Point(128, 317);
             this.txtFinalPrice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtFinalPrice.Name = "txtFinalPrice";
             this.txtFinalPrice.Size = new System.Drawing.Size(112, 26);
@@ -79,15 +81,15 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(31, 164);
+            this.label3.Location = new System.Drawing.Point(31, 252);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(158, 20);
+            this.label3.Size = new System.Drawing.Size(140, 20);
             this.label3.TabIndex = 15;
-            this.label3.Text = "Схема страхування ";
+            this.label3.Text = "Insurance scheme";
             // 
             // txtInsurance
             // 
-            this.txtInsurance.Location = new System.Drawing.Point(195, 164);
+            this.txtInsurance.Location = new System.Drawing.Point(187, 249);
             this.txtInsurance.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtInsurance.Name = "txtInsurance";
             this.txtInsurance.Size = new System.Drawing.Size(350, 26);
@@ -96,7 +98,7 @@
             // rbtnFullPayment
             // 
             this.rbtnFullPayment.AutoSize = true;
-            this.rbtnFullPayment.Location = new System.Drawing.Point(70, 260);
+            this.rbtnFullPayment.Location = new System.Drawing.Point(187, 101);
             this.rbtnFullPayment.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rbtnFullPayment.Name = "rbtnFullPayment";
             this.rbtnFullPayment.Size = new System.Drawing.Size(119, 24);
@@ -104,11 +106,12 @@
             this.rbtnFullPayment.TabStop = true;
             this.rbtnFullPayment.Text = "full payment";
             this.rbtnFullPayment.UseVisualStyleBackColor = true;
+            this.rbtnFullPayment.CheckedChanged += new System.EventHandler(this.rbtnFullPayment_CheckedChanged);
             // 
             // rbtnCredit
             // 
             this.rbtnCredit.AutoSize = true;
-            this.rbtnCredit.Location = new System.Drawing.Point(70, 292);
+            this.rbtnCredit.Location = new System.Drawing.Point(355, 101);
             this.rbtnCredit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rbtnCredit.Name = "rbtnCredit";
             this.rbtnCredit.Size = new System.Drawing.Size(73, 24);
@@ -120,7 +123,7 @@
             // rbtnInstallment
             // 
             this.rbtnInstallment.AutoSize = true;
-            this.rbtnInstallment.Location = new System.Drawing.Point(70, 324);
+            this.rbtnInstallment.Location = new System.Drawing.Point(495, 101);
             this.rbtnInstallment.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rbtnInstallment.Name = "rbtnInstallment";
             this.rbtnInstallment.Size = new System.Drawing.Size(94, 24);
@@ -131,7 +134,7 @@
             // 
             // btnCalculate
             // 
-            this.btnCalculate.Location = new System.Drawing.Point(299, 255);
+            this.btnCalculate.Location = new System.Drawing.Point(272, 161);
             this.btnCalculate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCalculate.Name = "btnCalculate";
             this.btnCalculate.Size = new System.Drawing.Size(84, 29);
@@ -143,25 +146,36 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(361, 46);
+            this.label4.Location = new System.Drawing.Point(31, 384);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 20);
+            this.label4.Size = new System.Drawing.Size(86, 20);
             this.label4.TabIndex = 21;
-            this.label4.Text = "Гарантія";
+            this.label4.Text = "Guarantee";
             // 
             // txtWarranty
             // 
-            this.txtWarranty.Location = new System.Drawing.Point(442, 46);
+            this.txtWarranty.Location = new System.Drawing.Point(128, 378);
             this.txtWarranty.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtWarranty.Name = "txtWarranty";
             this.txtWarranty.Size = new System.Drawing.Size(187, 26);
             this.txtWarranty.TabIndex = 22;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(49, 101);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(64, 20);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "Choose";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(666, 450);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.txtWarranty);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnCalculate);
@@ -195,6 +209,7 @@
         private System.Windows.Forms.Button btnCalculate;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtWarranty;
+        private System.Windows.Forms.Label label5;
     }
 }
 

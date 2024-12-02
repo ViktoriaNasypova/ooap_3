@@ -19,7 +19,6 @@ namespace lab3_ooap
 
         private void btnCalculate_Click(object sender, EventArgs e)
         {
-
             // Зчитуємо базову ціну
             double basePrice;
             if (!double.TryParse(txtBasePrice.Text, out basePrice))
@@ -28,20 +27,20 @@ namespace lab3_ooap
                 return;
             }
 
-            // Визначаємо тип клієнта за вибором радіо-кнопок
+            // Визначаємо тип клієнта за вибором радіо-кнопок через Singleton
             CarFactory factory = null;
 
             if (rbtnFullPayment.Checked)
             {
-                factory = new FullPaymentFactory();
+                factory = FullPaymentFactory.Instance;
             }
             else if (rbtnCredit.Checked)
             {
-                factory = new CreditFactory();
+                factory = CreditFactory.Instance;
             }
             else if (rbtnInstallment.Checked)
             {
-                factory = new InstallmentFactory();
+                factory = InstallmentFactory.Instance;
             }
             else
             {
@@ -61,6 +60,21 @@ namespace lab3_ooap
             txtFinalPrice.Text = finalPrice.ToString("F2");  // Відображення з двома десятковими знаками
             txtInsurance.Text = insuranceScheme;
             txtWarranty.Text = warrantyService;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbtnFullPayment_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
